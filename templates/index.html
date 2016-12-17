@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estimated Time of Arrival - KMB</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/jquery.mobile-1.4.5.min.css">
+    <script type="text/javascript" src="../static/js/jquery.mobile-1.4.5.min.js"></script>
+
+  </head>
+
+  <body>
+
+
+    <div data-role="page"  id="pageone" data-theme="a">
+        <div data-role="header">
+            <h3>ETA - KMB</h3>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <form action="/" id="form-container" class="form-container" method = 'post'>
+                <label for="bus_route">Bus route: </label><input type="text" name="bus_no" id="bus_route" value="" placeholder="e.g. 281A">
+                <!-- <label for="station">Station: </label><input type="text" name="text-1" id="station" value=""> -->
+                <button type="submit" name="submit" value="submit" data-theme="b" class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true">Submit</button>
+            </form>
+            <h1>{{ bus.no }}</h1>
+            {% for route in results %}
+              <ul data-role="listview"  data-inset="true">
+                <li data-role="list-divider">Route</li>
+                {% for i in route %}
+                <li data-icon="false"><a href="#pagetwo" id="{{i.RouteStation.sequence}}" onclick="getETA(this.id)">{{i.Station.engname}}</a></li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+
+          </div><!-- /content -->
+
+    </div><!-- /page -->
+
+    <div data-role="page" data-dialog="true" id="pagetwo" data-theme="a">
+      <div data-role="main" class="ui-content">
+        <ul id="etasessions" data-role="listview"  data-inset="true"></ul>
+        <a href="#pageone">Back</a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../static/js/script.js"></script>
+  </body>
+</html>
