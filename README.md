@@ -3,7 +3,7 @@
 [![screenshot.png](https://s23.postimg.org/6cwd4lpij/screenshot.png)](https://postimg.org/image/bob9pbbl3/)
 
 #### Intro
-This is an unofficial web app to check estimated time of arrival of KMB buses. Get estimated time from KMB server.
+Since the official Estimated Time of Arrival - KMB is not mobile-friendly, an unofficial web app for mobile user to check estimated arrival times is built. Estimated times are retrieved from KMB server.
 
 #### Project link
 http://nrator.pythonanywhere.com/
